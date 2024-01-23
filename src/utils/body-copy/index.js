@@ -1,12 +1,16 @@
 const BodyCopy = {
-  home: {
-    title: "Home",
+  header: {
+    nav: {
+      home: "Home",
+      services: "Services",
+      contact: "Contact",
+    },
+    cta: "Let's Get Go-ing!",
   },
-  services: {
-    title: "Services",
-  },
-  contact: {
-    title: "Contact",
+  footer: {
+    "all-rights-reserved": "All rights reserved",
+    tos: "Terms of Use",
+    pp: "Privacy Policy",
   },
   error: {
     boundary: {

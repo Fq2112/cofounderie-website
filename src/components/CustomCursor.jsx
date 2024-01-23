@@ -5,9 +5,9 @@ export default function CustomCursor() {
   return (
     <AnimatedCursor
       innerSize={8}
-      outerSize={24}
+      outerSize={28}
       innerScale={1}
-      outerScale={2}
+      outerScale={1.5}
       outerAlpha={0}
       hasBlendMode={true}
       innerStyle={{

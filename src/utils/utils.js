@@ -1,7 +1,7 @@
-import { appTitle } from "./const";
+import { company } from "./const";
 
 export const titleScroller = (pageTitle) => {
-  let title = `${pageTitle} | ${appTitle}`;
+  let title = `${pageTitle} | ${company.name}`;
   let seTime;
 
   (function titleScroller(text) {

@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
-import { titleScroller } from "../utils/utils";
+import React from "react";
 import { t } from "i18next";
+import Extend from "../components/layouts/Extend";
 
 export default function Home() {
-  useEffect(() => titleScroller(t("home.title")), []);
-
   return (
-    <div className="flex w-full h-screen bg-white text-black">
-      {t("home.title")}
-    </div>
+    <Extend menu={t("header.nav.home")}>
+      <div className="h-screen">{t("header.nav.home")}</div>
+    </Extend>
   );
 }

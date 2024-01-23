@@ -19,16 +19,17 @@ export default function App() {
   };
 
   return (
-    <ErrorBoundary
-      FallbackComponent={ErrorBoundaryFallback}
-      onError={logErrorBoundary}
-    >
+    <Fragment>
       <CustomCursor />
-      <BrowserRouter>
-        <Fragment>
+
+      <ErrorBoundary
+        FallbackComponent={ErrorBoundaryFallback}
+        onError={logErrorBoundary}
+      >
+        <BrowserRouter>
           <Routes />
-        </Fragment>
-      </BrowserRouter>
-    </ErrorBoundary>
+        </BrowserRouter>
+      </ErrorBoundary>
+    </Fragment>
   );
 }
