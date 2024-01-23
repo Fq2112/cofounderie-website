@@ -4,8 +4,20 @@
 
 @layer base {
   :root {
-    --primary-color: #29EEE8;
-    --middle-color: #8585E6;
-    --secondary-color: #AF56E7;
+    --primary-color: #29eee8;
+    --middle-color: #8585e6;
+    --secondary-color: #af56e7;
+  }
+}
+
+@layer utilities {
+  * {
+    cursor: none;
+  }
+
+  *:hover,
+  *:focus,
+  *:active {
+    cursor: none;
   }
 }

@@ -2431,7 +2431,7 @@
   top: 118px;
   left: 105px;
 }
-button {
+.error-wrapper button {
   position: absolute;
   bottom: 30px;
   left: 50%;
@@ -2442,7 +2442,7 @@ button {
   cursor: pointer;
   z-index: 999;
 }
-button:active {
+.error-wrapper button:active {
   transform: translateX(-50%) scale(0.95);
 }
 .sorry {
