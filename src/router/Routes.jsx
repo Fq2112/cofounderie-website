@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes as RouteDom } from "react-router-dom";
-import Error404 from "../components/error/Error404";
+import Error404 from "../components/error/404/Error404";
 import { path } from "../utils/const";
 import Home from "../pages/Home";
 import Services from "../pages/Services";

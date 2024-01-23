@@ -5,16 +5,18 @@ export default function CustomCursor() {
   return (
     <AnimatedCursor
       innerSize={8}
-      outerSize={35}
+      outerSize={24}
       innerScale={1}
       outerScale={2}
       outerAlpha={0}
       hasBlendMode={true}
       innerStyle={{
-        backgroundColor: "var(--secondary-color)",
+        backgroundColor: "var(--primary-color)",
       }}
       outerStyle={{
-        border: "3px solid var(--middle-color)",
+        backgroundImage:
+          "linear-gradient(to bottom, var(--primary-color), var(--middle-color), var(--secondary-color))",
+        mixBlendMode: "multiply",
       }}
       showSystemCursor={false}
       trailingSpeed={8}

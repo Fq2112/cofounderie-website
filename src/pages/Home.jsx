@@ -6,7 +6,7 @@ export default function Home() {
   useEffect(() => titleScroller(t("home.title")), []);
 
   return (
-    <div className="flex w-full h-screen bg-black text-white">
+    <div className="flex w-full h-screen bg-white text-black">
       {t("home.title")}
     </div>
   );
