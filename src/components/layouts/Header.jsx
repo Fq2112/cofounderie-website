@@ -3,7 +3,7 @@ import { FiMapPin } from "react-icons/fi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { RiCloseLine } from "react-icons/ri";
 import { IoMdRocket } from "react-icons/io";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { assets, company, externalPath, path } from "../../utils/const";
 import classNames from "classnames";
@@ -51,39 +51,24 @@ const TopBar = () => {
 
 export default function Header({ isMenuWhite }) {
   const navMenuRef = useRef(null);
-  const { showMenu, setShowMenu } = navbarStore((state) => state);
+  const { showMenu, setShowMenu, burgerAnimate, setBurgerAnimate } =
+    navbarStore((state) => state);
 
-  const [burgerAnimate, setBurgerAnimate] = useState(false);
-
-  //   switch show menu burger to true
+  // switch show menu burger to true
   useEffect(() => {
     let timeout;
     if (showMenu) timeout = setTimeout(() => setBurgerAnimate(true), 100);
 
     return () => clearTimeout(timeout);
-  }, [showMenu]);
+  }, [setBurgerAnimate, showMenu]);
 
-  //   switch show menu burger to false
+  // switch show menu burger to false
   useEffect(() => {
     let timeout;
     if (!burgerAnimate) timeout = setTimeout(() => setShowMenu(false), 100);
 
     return () => clearTimeout(timeout);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [burgerAnimate]);
-
-  // close on click outside
-  useEffect(() => {
-    const clickHandler = (e) => {
-      const { target } = e;
-
-      if (!showMenu || navMenuRef?.current?.contains(target)) return;
-
-      setBurgerAnimate(false);
-    };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
-  });
+  }, [burgerAnimate, setShowMenu]);
 
   // close if the esc key is pressed
   useEffect(() => {
@@ -100,7 +85,7 @@ export default function Header({ isMenuWhite }) {
     return () => document.removeEventListener("keydown", keyHandler);
   });
 
-  //   switch showing burger menu event
+  // switch showing burger menu event
   const showBurgerMenu = () => {
     if (!showMenu) setShowMenu(true);
     else setBurgerAnimate(false);
@@ -119,7 +104,7 @@ export default function Header({ isMenuWhite }) {
           {isMenuWhite || showMenu ? (
             <div
               className={`w-16 h-16 p-2 rounded-[14px] transition-all ease-in-out duration-300 ${
-                showMenu ? "bg-black" : "bg-neutral-200 hover:bg-black"
+                showMenu ? "bg-black" : "bg-neutral-100 hover:bg-black"
               }`}
             >
               <img
@@ -142,7 +127,7 @@ export default function Header({ isMenuWhite }) {
         <div className="flex items-center justify-center gap-x-6">
           {isMenuWhite ? (
             <a
-              className="group flex-shrink-0 w-14 h-14 hover:w-fit hover:px-4 bg-neutral-200 rounded-full flex gap-x-1 items-center justify-center hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+              className="group flex-shrink-0 w-14 h-14 hover:w-fit hover:px-4 bg-neutral-100 rounded-full flex gap-x-1 items-center justify-center hover:bg-black hover:text-white transition-all ease-in-out duration-300"
               href={externalPath.cta}
             >
               <IoMdRocket className="absolute w-8 h-8 flex-shrink-0 group-hover:relative group-hover:h-6 group-hover:w-6 group-hover:rotate-45 transition-all ease-in-out duration-300" />
@@ -162,7 +147,7 @@ export default function Header({ isMenuWhite }) {
           <button
             className={`z-10 w-14 h-14 flex items-center flex-shrink-0 justify-center hover:text-secondary transition-all duration-300 ease-in-out ${
               isMenuWhite &&
-              "bg-neutral-200 rounded-full hover:bg-black hover:text-white "
+              "bg-neutral-100 rounded-full hover:bg-black hover:text-white "
             }`}
             onClick={showBurgerMenu}
           >
@@ -186,11 +171,13 @@ export default function Header({ isMenuWhite }) {
           </button>
         </div>
 
-        <Navbar
-          navMenuRef={navMenuRef}
-          showMenu={showMenu}
-          burgerAnimate={burgerAnimate}
-        />
+        {showMenu && (
+          <Navbar
+            navMenuRef={navMenuRef}
+            showMenu={showMenu}
+            burgerAnimate={burgerAnimate}
+          />
+        )}
       </header>
     </Fragment>
   );

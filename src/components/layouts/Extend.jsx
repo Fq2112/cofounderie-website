@@ -3,7 +3,7 @@ import { titleScroller } from "../../utils/utils";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Extend({ menu, children, isSlate = false }) {
+export default function Extend({ menu, children, bgWrapper = "bg-white" }) {
   const [isMenuWhite, setIsMenuWhite] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
   const runScroll = (e) => {
@@ -21,9 +21,7 @@ export default function Extend({ menu, children, isSlate = false }) {
   return (
     <div
       id="wrapper"
-      className={`w-full h-screen overflow-y-auto ${
-        isSlate ? "bg-slate-100" : "bg-white"
-      }`}
+      className={`w-full h-screen overflow-y-auto ${bgWrapper}`}
       onScroll={runScroll}
     >
       <Header isMenuWhite={isMenuWhite} />

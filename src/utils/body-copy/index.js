@@ -1,9 +1,34 @@
 const BodyCopy = {
   header: {
     nav: {
-      home: "Home",
-      services: "Services",
-      contact: "Contact",
+      home: {
+        title: "Home",
+        body: "First things first",
+      },
+      works: {
+        title: "Works",
+        body: "What we do for leading global projects",
+      },
+      services: {
+        title: "Services",
+        body: "Our services, capabilities, and the work we do",
+      },
+      thoughts: {
+        title: "Thoughts",
+        body: "Our thoughts on design, technology, and business",
+      },
+      about: {
+        title: "About",
+        body: "How we work and what makes us tick",
+      },
+      people: {
+        title: "People",
+        body: "Find out who works here and how to join us",
+      },
+      contact: {
+        title: "Contact",
+        body: "Get in touch for briefs, job apps, and enquiries",
+      },
     },
     cta: "Let's Get Go-ing!",
   },

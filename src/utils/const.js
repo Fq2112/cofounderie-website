@@ -24,7 +24,11 @@ export const assets = {
 
 export const path = {
   home: "/",
+  works: "/works",
   services: "/services",
+  thoughts: "/thoughts",
+  about: "/about",
+  people: "/people",
   contact: "/contact",
 };
 

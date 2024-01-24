@@ -8,7 +8,7 @@ import SocialMedia from "../SocialMedia";
 import navbarStore from "../../utils/zustand-store/navbarStore";
 
 export default function Footer() {
-  const { showMenu } = navbarStore((state) => state);
+  const { showMenu, burgerAnimate } = navbarStore((state) => state);
   const [date, setDate] = useState();
   const getYear = () => setDate(new Date().getFullYear());
   const [scrollTop, setScrollTop] = useState(0);
@@ -49,9 +49,9 @@ export default function Footer() {
   return (
     <footer
       className={classNames(
-        "flex items-center py-8 justify-center text-xs relative w-full bg-neutral-950 transition-all ease-in-out duration-1000",
+        "flex items-center py-10 justify-center text-xs relative w-full bg-neutral-950 transition-all ease-in-out duration-1000",
         {
-          "translate-y-full": showMenu,
+          "translate-y-full": showMenu && burgerAnimate,
         }
       )}
     >
@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
 
       <button
-        className={`w-10 h-10 fixed bottom-8 right-8 rounded-full z-30 flex items-center justify-center cursor-pointer transition duration-300 ease-linear bg-neutral-200 hover:text-white hover:bg-black opacity-${
+        className={`w-10 h-10 fixed bottom-8 right-8 rounded-full z-30 flex items-center justify-center cursor-pointer transition duration-300 ease-linear bg-neutral-100 hover:text-white hover:bg-black opacity-${
           isShow ? 100 : 0
         }`}
         onClick={() =>
