@@ -96,7 +96,7 @@ export default function Header({ isMenuWhite }) {
       <TopBar />
 
       <header
-        className={`flex items-center justify-between w-full h-[6.3rem] sticky inset-0 bg-transparent transition-all duration-300 ease-in-out ${
+        className={`flex items-center justify-between w-full h-[6.3rem] z-[1] sticky inset-0 bg-transparent transition-all duration-300 ease-in-out ${
           isMenuWhite ? "px-12" : "px-16"
         }`}
       >

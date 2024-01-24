@@ -7,7 +7,7 @@ export default function CustomCursor() {
       innerSize={8}
       outerSize={28}
       innerScale={1}
-      outerScale={1.5}
+      outerScale={2}
       outerAlpha={0}
       hasBlendMode={true}
       innerStyle={{

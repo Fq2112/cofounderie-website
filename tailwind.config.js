@@ -10,7 +10,18 @@ module.exports = {
       },
       fontFamily: {
         arialBlack: ["Arial Black"],
+        albraBlack: ["Albra Black"],
       },
+      keyframes: {
+        scrolldown: {
+          '0%': { backgroundPosition: '0 -60px' },
+          '50%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '0 60px' },
+        }
+      },
+      animation: {
+        scrolldown: 'scrolldown 2.5s cubic-bezier(.76,0,.3,1) forwards infinite',
+      }
     },
   },
   plugins: [],

@@ -32,6 +32,12 @@ const BodyCopy = {
     },
     cta: "Let's Get Go-ing!",
   },
+  home: {
+    "award-winning": "Award winning best in-class",
+    "building-your": "Building your exceptional in-house team. Sorted.",
+    "book-a-free": "Book a free team-structuring consultation",
+    "lets-talk": "Let's talk!",
+  },
   footer: {
     "all-rights-reserved": "All rights reserved",
     tos: "Terms of Use",

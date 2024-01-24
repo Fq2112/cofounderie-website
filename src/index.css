@@ -8,6 +8,13 @@
     --middle-color: #8585e6;
     --secondary-color: #af56e7;
   }
+
+  @font-face {
+    font-family: 'Albra Black';
+    src: url('/public/fonts/AlbraBlack.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 }
 
 @layer utilities {

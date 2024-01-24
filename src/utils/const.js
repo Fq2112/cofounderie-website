@@ -20,6 +20,7 @@ export const assets = {
   iconNoBg: `${window.location.origin}/images/icon-no-bg.png`,
   logo: `${window.location.origin}/images/logotype.png`,
   overlay1: `${window.location.origin}/images/overlay/1.png`,
+  videoHero: `${window.location.origin}/videos/cofounderie-hero.mp4`,
 };
 
 export const path = {
