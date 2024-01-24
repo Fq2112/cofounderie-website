@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { titleScroller } from "../../utils/utils";
 import Header from "./Header";
 import Footer from "./Footer";
+import Navbar from "../Navbar";
 
 export default function Extend({ menu, children, bgWrapper = "bg-white" }) {
+  const navMenuRef = useRef(null);
+
   const [isMenuWhite, setIsMenuWhite] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
   const runScroll = (e) => {
@@ -25,6 +28,8 @@ export default function Extend({ menu, children, bgWrapper = "bg-white" }) {
       onScroll={runScroll}
     >
       <Header isMenuWhite={isMenuWhite} />
+
+      <Navbar navMenuRef={navMenuRef} />
 
       {children}
 

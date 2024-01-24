@@ -18,7 +18,7 @@ export const company = {
 export const assets = {
   icon: `${window.location.origin}/images/icon.png`,
   iconNoBg: `${window.location.origin}/images/icon-no-bg.png`,
-  logo: `${window.location.origin}/images/logotype.png`,
+  logo: `${window.location.origin}/images/logotype-no-bg.png`,
   overlay1: `${window.location.origin}/images/overlay/1.png`,
   videoHero: `${window.location.origin}/videos/cofounderie-hero.mp4`,
 };

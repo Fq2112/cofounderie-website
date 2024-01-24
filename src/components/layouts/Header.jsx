@@ -3,13 +3,12 @@ import { FiMapPin } from "react-icons/fi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { RiCloseLine } from "react-icons/ri";
 import { IoMdRocket } from "react-icons/io";
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { assets, company, externalPath, path } from "../../utils/const";
 import classNames from "classnames";
 import { t } from "i18next";
 import SocialMedia from "../SocialMedia";
-import Navbar from "../Navbar";
 import navbarStore from "../../utils/zustand-store/navbarStore";
 
 const TopBar = () => {
@@ -50,7 +49,6 @@ const TopBar = () => {
 };
 
 export default function Header({ isMenuWhite }) {
-  const navMenuRef = useRef(null);
   const { showMenu, setShowMenu, burgerAnimate, setBurgerAnimate } =
     navbarStore((state) => state);
 
@@ -96,88 +94,83 @@ export default function Header({ isMenuWhite }) {
       <TopBar />
 
       <header
-        className={`flex items-center justify-between w-full h-[6.3rem] z-[1] sticky inset-0 bg-transparent transition-all duration-300 ease-in-out ${
+        className={`flex items-center justify-between w-full h-[6.3rem] z-[3] sticky inset-0 bg-transparent transition-all duration-300 ease-in-out ${
           isMenuWhite ? "px-12" : "px-16"
         }`}
       >
-        <Link className="z-10" to={path.home}>
-          {isMenuWhite || showMenu ? (
-            <div
-              className={`w-16 h-16 p-2 rounded-[14px] transition-all ease-in-out duration-300 ${
-                showMenu ? "bg-black" : "bg-neutral-100 hover:bg-black"
-              }`}
-            >
-              <img
-                src={assets.iconNoBg}
-                alt="icon"
-                className="w-full h-full object-contain"
-              />
-            </div>
-          ) : (
-            <div className="w-full">
-              <img
-                src={assets.logo}
-                alt="logo"
-                className="w-full object-contain"
-              />
-            </div>
-          )}
+        <Link to={path.home}>
+          <div
+            className={classNames(
+              "w-full transition-all ease-in-out duration-700",
+              {
+                "bg-transparent": !isMenuWhite && !showMenu,
+                "w-16 h-16 p-2 rounded-[14px] bg-black":
+                  isMenuWhite || showMenu,
+                "bg-neutral-100 hover:bg-black": isMenuWhite || !showMenu,
+              }
+            )}
+          >
+            <img
+              src={isMenuWhite || showMenu ? assets.iconNoBg : assets.logo}
+              alt="icon"
+              className="w-full h-full object-contain"
+            />
+          </div>
         </Link>
 
         <div className="flex items-center justify-center gap-x-6">
-          {isMenuWhite ? (
-            <a
-              className="group flex-shrink-0 w-14 h-14 hover:w-fit hover:px-4 bg-neutral-100 rounded-full flex gap-x-1 items-center justify-center hover:bg-black hover:text-white transition-all ease-in-out duration-300"
-              href={externalPath.cta}
-            >
-              <IoMdRocket className="absolute w-8 h-8 flex-shrink-0 group-hover:relative group-hover:h-6 group-hover:w-6 group-hover:rotate-45 transition-all ease-in-out duration-300" />
-              <span className="hidden group-hover:block font-semibold transition-all ease-in-out duration-300">
+          <div
+            className={classNames("transition-all ease-in-out duration-500", {
+              "translate-x-full opacity-0": showMenu,
+              "translate-x-0 opacity-100": !showMenu,
+            })}
+          >
+            {isMenuWhite ? (
+              <a
+                className="group flex-shrink-0 w-14 h-14 hover:w-fit hover:px-4 bg-neutral-100 rounded-full flex gap-x-1 items-center justify-center hover:bg-black transition-all ease-in-out duration-700"
+                href={externalPath.cta}
+              >
+                <IoMdRocket className="absolute w-8 h-8 flex-shrink-0 text-black group-hover:text-white group-hover:relative group-hover:h-6 group-hover:w-6 group-hover:rotate-45 transition-all ease-in-out duration-700" />
+                <span className="hidden font-semibold group-hover:block text-black group-hover:text-white transition-all ease-in-out duration-700">
+                  {t("header.cta")}
+                </span>
+              </a>
+            ) : (
+              <a
+                href={externalPath.cta}
+                className="flex-shrink-0 text-secondary font-semibold border-b-2 border-neutral-200 hover:border-middle transition-all ease-in-out duration-700"
+              >
                 {t("header.cta")}
-              </span>
-            </a>
-          ) : (
-            <a
-              href={externalPath.cta}
-              className="flex-shrink-0 text-secondary font-semibold border-b-2 border-neutral-200 hover:border-middle transition-all ease-in-out duration-500"
-            >
-              {t("header.cta")}
-            </a>
-          )}
+              </a>
+            )}
+          </div>
 
           <button
-            className={`z-10 w-14 h-14 flex items-center flex-shrink-0 justify-center hover:text-secondary transition-all duration-300 ease-in-out ${
-              isMenuWhite &&
-              "bg-neutral-100 rounded-full hover:bg-black hover:text-white "
-            }`}
+            className={classNames(
+              "w-14 h-14 flex items-center flex-shrink-0 justify-center hover:text-secondary transition-all duration-700 ease-in-out",
+              {
+                "bg-neutral-100 rounded-full hover:bg-black hover:text-white":
+                  isMenuWhite,
+              }
+            )}
             onClick={showBurgerMenu}
           >
             <HiOutlineMenuAlt1
               className={classNames(
-                "absolute flex-shrink-0 h-8 w-8 scale-x-[-1] transition-all duration-300 ease-in-out",
+                "absolute flex-shrink-0 h-8 w-8 scale-x-[-1]",
                 {
                   "rotate-45 opacity-0": showMenu && burgerAnimate,
                 }
               )}
             />
             <RiCloseLine
-              className={classNames(
-                "absolute flex-shrink-0 h-8 w-8 transition-all duration-300 ease-in-out",
-                {
-                  "opacity-0": (!burgerAnimate && showMenu) || !showMenu,
-                  "rotate-90 opacity-100": showMenu && burgerAnimate,
-                }
-              )}
+              className={classNames("absolute flex-shrink-0 h-8 w-8", {
+                "opacity-0": (!burgerAnimate && showMenu) || !showMenu,
+                "rotate-90 opacity-100": showMenu && burgerAnimate,
+              })}
             />
           </button>
         </div>
-
-        {showMenu && (
-          <Navbar
-            navMenuRef={navMenuRef}
-            showMenu={showMenu}
-            burgerAnimate={burgerAnimate}
-          />
-        )}
       </header>
     </Fragment>
   );
