@@ -60,7 +60,7 @@ export default function Footer() {
           &copy; {date} &nbsp;
           <Link
             to={path.home}
-            className="text-secondary transition-opacity hover:opacity-70 duration-300"
+            className="text-secondary hover:opacity-70 transition-opacity ease-in-out duration-300"
           >
             {company.name}
           </Link>

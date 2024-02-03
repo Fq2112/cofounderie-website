@@ -56,7 +56,7 @@ export default function Navbar({ navMenuRef }) {
       className={classNames(
         "h-screen w-full z-[2] fixed top-0 left-0 right-0 flex items-end justify-center gap-x-72 transition-all duration-700 ease-in-out py-20 bg-neutral-100",
         {
-          "hidden": !showMenu,
+          hidden: !showMenu,
           "flex scale-x-125 -translate-y-full opacity-0":
             showMenu && !burgerAnimate,
           "flex scale-x-100 translate-y-0 opacity-100":

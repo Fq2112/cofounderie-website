@@ -149,7 +149,7 @@ export default function Header({ isMenuWhite }) {
             className={classNames(
               "w-14 h-14 flex items-center flex-shrink-0 justify-center hover:text-secondary transition-all duration-700 ease-in-out",
               {
-                "bg-neutral-100 rounded-full hover:bg-black hover:text-white":
+                "bg-neutral-100 rounded-full hover:bg-black hover:text-white hover:scale-[1.2]":
                   isMenuWhite,
               }
             )}

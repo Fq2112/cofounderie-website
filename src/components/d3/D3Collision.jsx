@@ -11,7 +11,7 @@ export const HeroD3Animation = () => {
     const colorCodes = ["#AF56E7", "#29EEE8", "#8585E6"];
     const n = colorCodes.length;
 
-    return Array.from({ length: 1000 }, (_, i) => ({
+    return Array.from({ length: 500 }, (_, i) => ({
       r: r(),
       group: i && (i % n) + 1,
       color: colorCodes[(i && i % n) || 0],
